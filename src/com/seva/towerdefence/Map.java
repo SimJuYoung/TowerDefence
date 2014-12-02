@@ -1,5 +1,5 @@
+package com.seva.towerdefence;
 import java.awt.Point;
-import java.io.Console;
 import java.util.Vector;
 
 

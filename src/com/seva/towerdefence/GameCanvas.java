@@ -1,9 +1,12 @@
+package com.seva.towerdefence;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.util.Vector;
+
+import com.seva.towerdefence.image.ImageBox;
 
 
 public class GameCanvas extends Canvas{

@@ -1,3 +1,4 @@
+package com.seva.towerdefence;
 
 public class Effect extends gameObject{
 	public int DestroyFrame;
