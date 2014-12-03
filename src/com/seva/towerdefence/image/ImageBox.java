@@ -23,19 +23,34 @@ public class ImageBox {
 	}
 
 	void addImages() {
-		addImage("start.png"); // 0
-		addImage("over.jpg"); // 1
-		addImage("title.png"); // 2
-		addImage("backGround.png"); // 3
-		addImage("MainUI.jpg"); // 4
-		addImage("titleControl.png"); // 5
-		addImage("map1.png"); // 6
-		addImage("controller_basic.png"); // 7
-		addImage("UI_Tower1.png"); // 8
-		addImage("UI_Tower2.png"); // 9
-		addImage("UI_Tower3.png"); // 10
-		addImage("UI_Tower4.png"); // 11
-		addImage("UI_Cancel.png"); // 12
+		addImage("start.png");			 // 0
+		addImage("over.jpg"); 			// 1
+		addImage("title.png"); 			// 2
+		addImage("backGround.png"); 	// 3
+		addImage("MainUI.jpg"); 		// 4
+		addImage("titleControl.png");	// 5
+		addImage("map1.png"); 			// 6
+		addImage("controller_basic.png");// 7
+		addImage("UI_Tower1.png");		 // 8
+		addImage("UI_Tower2.png"); 		// 9
+		addImage("UI_Tower3.png");		 // 10
+		addImage("UI_Tower4.png");		 // 11
+		addImage("UI_Cancel.png");		 // 12
+		addImage("ControllCube.png");	//13
+		addImage("Number0.png");		//14
+		addImage("Number1.png");		//15
+		addImage("Number2.png");		//16
+		addImage("Number3.png");		//17
+		addImage("Number4.png");		//18
+		addImage("Number5.png");		//19
+		addImage("Number6.png");		//20
+		addImage("Number7.png");		//21
+		addImage("Number8.png");		//22
+		addImage("Number9.png");		//23
+		addImage("Brave_1.png");		//24
+		addImage("Brave_2.png");		//25
+		addImage("Brave_3.png");		//26
+		addImage("Brave_4.png");		//27
 	}
 
 	void addImage(String resourceName) {

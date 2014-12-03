@@ -26,7 +26,7 @@ public class GameCanvas extends Canvas{
 		this.main=main;
 		font=new Font("Default",Font.PLAIN,9);
 		start = new gameObject(main, 0, 0,0);
-		over = new gameObject(main, 1,0,0);
+		over = new gameObject(main, 1,main.getWidth()/2, main.getHeight()/2);
 		title = new gameObject(main, 2, main.getWidth()/2, main.getHeight()/2);
 		map = new Map(main,6,main.getWidth()/2, main.getHeight()/2);
 		MainUI = new gameObject(main, 4,0,0);
@@ -59,27 +59,31 @@ public class GameCanvas extends Canvas{
 			break;
 		case 1://게임 스타트
 			Draw_BG();
+			Draw_UI();
 			break;
 		case 2://게임화면
 			Draw_BG();
+			Draw_Control();
 			Draw_gameObject(main.Towers);
-			Draw_gameObject(main.Enemys);
+			Draw_gameObject(main.Enemys, 60, 60);
 			Draw_gameObject(main.Bullets);
 			Draw_gameObject(main.Effects);
-			Draw_gameObject(main.UIs, (int)(3*this.getWidth()/28), (int)(0.98*this.getHeight()/5));
+			Draw_gameObject(main.UIs, (int)(2*this.getWidth()/28), (int)(0.5*this.getHeight()/5), 15);
+			Draw_UI();
+			break;
 		case 4://일시정지
 			Draw_BG();
 			Draw_gameObject(main.Towers);
-			Draw_gameObject(main.Enemys);
+			Draw_gameObject(main.Enemys, 60, 60);
 			Draw_gameObject(main.Bullets);
 			Draw_gameObject(main.Effects);
-			Draw_gameObject(main.UIs, (int)(3*this.getWidth()/28), (int)(0.98*this.getHeight()/5));
-			//Draw_UI();
+			Draw_gameObject(main.UIs, (int)(2*this.getWidth()/28), (int)(0.5*this.getHeight()/5), 15);
+			Draw_UI();
 			break;
 		case 3://게임오버
 			Draw_BG();
 			Draw_gameObject(main.Towers);
-			Draw_gameObject(main.Enemys);
+			Draw_gameObject(main.Enemys, 60, 60);
 			Draw_gameObject(main.Bullets);
 			Draw_gameObject(main.Effects);
 			gcDrawImage(over);
@@ -90,11 +94,19 @@ public class GameCanvas extends Canvas{
 		}
 	}
 		
-	public void Draw_BG(){
-		gcDrawImage(map, main.getWidth(), main.getHeight(), 30);
-		gcDrawImage(main.Control, main.getWidth()/12, main.getHeight()/8);
+	private void Draw_BG(){
+		gcDrawImage(map, main.getWidth(), main.getHeight()-30, 15);
 	}
-	public void Draw_gameObject(Vector<gameObject> vec){
+	private void Draw_Control(){
+		gcDrawImage(main.Control, main.getWidth()/12, main.getHeight()/8, 30);
+	}
+	private void Draw_UI(){
+		Draw_Numbers(main.Gold,main.getWidth()- 50,main.getHeight() - 60, 60);
+		Draw_Numbers(main.Life,150,30, 60);
+		//Draw_Numbers(main.Time,main.getWidth()- 50,main.getHeight() - 60, 60);v
+	}
+	
+	private void Draw_gameObject(Vector<gameObject> vec){
 		int i;
 		gameObject buff;
 		for(i=0;i<vec.size();i++){
@@ -102,7 +114,7 @@ public class GameCanvas extends Canvas{
 			gcDrawImage(buff);
 		}
 	}
-	public void Draw_gameObject(Vector<gameObject> vec, int x, int y){
+	private void Draw_gameObject(Vector<gameObject> vec, int x, int y){
 		int i;
 		gameObject buff;
 		for(i=0;i<vec.size();i++){
@@ -110,25 +122,46 @@ public class GameCanvas extends Canvas{
 			gcDrawImage(buff, x, y);
 		}
 	}
-	public void Draw_UI(){
-		gc.setColor(new Color(0xffffff));
-		//gcDrawImage(MainUI);
-		String str2 = "[1] Speed down   [2] Speed up   [3] Pause : ";
-		gc.setColor(new Color(0));
-		gc.drawString(str2, 10,main.gScreenHeight-10);
+	private void Draw_gameObject(Vector<gameObject> vec, int x, int y, int height_transformation){
+		int i;
+		gameObject buff;
+		for(i=0;i<vec.size();i++){
+			buff=(gameObject)(vec.elementAt(i));
+			gcDrawImage(buff, x, y, height_transformation);
+		}
+	}
+	public void Draw_Number(int Num, int x, int y, int scale){
+		Image img = ImgBox.getImage(Num + 14);
+		gc.drawImage(img,x- scale/2, main.getHeight() - (scale/2) - y,scale,scale,this);
 	}
 	
-	public void gcDrawImage(gameObject gO){
+	public void Draw_Numbers(int Num, int x, int y, int scale){
+		int NumCount = 0;		//자릿수
+		int virtualNum = Num;
+		while(true){			//자릿수 구하기
+			if(0 < virtualNum){
+				NumCount++;
+				virtualNum = (int)virtualNum/10;
+			}else{break;}
+		}
+		virtualNum = Num;
+		for(int i = 0; i < NumCount ; i++){
+			Draw_Number(virtualNum%10, x-(scale*2*i/5), y, scale);
+			virtualNum = (int)virtualNum/10;
+		}
+	}
+	
+	private void gcDrawImage(gameObject gO){
 		Image img = ImgBox.getImage(gO.imgIndex);
 		gc.drawImage(img,gO.position.x-img.getWidth(null)/2, main.getHeight() - (img.getHeight(null)/2) - gO.position.y,this);
 	}
-	public void gcDrawImage(gameObject gO, int width, int height){
+	private void gcDrawImage(gameObject gO, int width, int height){
 		Image img = ImgBox.getImage(gO.imgIndex);
-		gc.drawImage(img,gO.position.x-width/2, main.getHeight() - (height/2) - gO.position.y+30, width, height,this);
+		gc.drawImage(img,gO.position.x-width/2, main.getHeight() - (height/2) - gO.position.y, width, height,this);
 	}
-	public void gcDrawImage(gameObject gO, int width, int height, int height_transformation){
+	private void gcDrawImage(gameObject gO, int width, int height, int height_transformation){
 		Image img = ImgBox.getImage(gO.imgIndex);
-		gc.drawImage(img,gO.position.x-width/2, main.getHeight() - (height/2) - gO.position.y+30, width, height - height_transformation,this);
+		gc.drawImage(img,gO.position.x-width/2, main.getHeight() - (height/2) - gO.position.y+height_transformation, width, height,this);
 	}
 	
 

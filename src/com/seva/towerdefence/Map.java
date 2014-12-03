@@ -30,23 +30,28 @@ public class Map extends gameObject{
 		switch(stage){
 		case 1:
 			Route = new int[][]{
-					{1,1,1,1,1,1,1,1,1,1,1,1},
-					{0,0,0,0,0,0,0,0,0,0,0,1},
-					{1,1,1,1,1,1,1,1,1,1,0,1},
-					{1,0,0,0,0,0,1,1,1,1,0,1},
-					{1,0,1,1,1,0,0,0,0,0,0,1},
-					{1,0,1,1,1,1,1,1,1,1,1,1},
-					{1,0,0,0,0,0,0,0,0,0,0,0},
-					{1,1,1,1,1,1,1,1,1,1,1,1},};
-				Routing.clear();
-				Routing.add(new Point(1, 7));	//0
-				Routing.add(new Point(11, 7));	//1
-				Routing.add(new Point(11, 4));	//2
-				Routing.add(new Point(6, 4));	//3
-				Routing.add(new Point(6, 5));	//4
-				Routing.add(new Point(2, 5));	//5
-				Routing.add(new Point(2, 2));	//6
-				Routing.add(new Point(12, 2));	//7
+					{1, 1, 1, 1, 1, 1, 0, 1},
+					{1, 0, 0, 0, 0, 1, 0, 1},
+					{1, 0, 1, 1, 0, 1, 0, 1},
+					{1, 0, 1, 1, 0, 1, 0, 1},
+					{1, 0, 1, 1, 0, 1, 0, 1},
+					{1, 0, 1, 0, 0, 1, 0, 1},
+					{1, 0, 1, 0, 1, 1, 0, 1},
+					{1, 0, 1, 0, 1, 1, 0, 1},
+					{1, 0, 1, 0, 1, 1, 0, 1},
+					{1, 0, 1, 0, 1, 1, 0, 1},
+					{1, 0, 1, 0, 0, 0, 0, 1},
+					{1, 0, 1, 1, 1, 1, 1, 1},
+					};
+				//Routing.clear();
+				Routing.addElement(new Point(1, 7));	//0
+				Routing.addElement(new Point(11, 7));	//1
+				Routing.addElement(new Point(11, 4));	//2
+				Routing.addElement(new Point(6, 4));	//3
+				Routing.addElement(new Point(6, 5));	//4
+				Routing.addElement(new Point(2, 5));	//5
+				Routing.addElement(new Point(2, 2));	//6
+				Routing.addElement(new Point(12, 2));	//7
 			break;
 		case 2:
 			Route = new int[][]{

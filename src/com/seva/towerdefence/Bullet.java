@@ -19,12 +19,12 @@ public class Bullet extends gameObject{
 		this.to=to;
 		this.velocity=velocity;
 	}
-	
+	/*
 	public void move(){
 		position.x-=(velocity.x*100);
 		position.y-=(velocity.y*100);
 		if(distance(to) <= 1) {// ÃÑ¾ËÀÌ ¸íÁß
 			to.Collision(this);
 		}
-	}
+	}*/
 }
