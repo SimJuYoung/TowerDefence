@@ -389,117 +389,82 @@ public class MainFrame extends Frame implements KeyListener, Runnable {
 			}
 		}
 		/*
-		if (towerNumber == 2) {
-			int ElementNumber = gameCanvas.getMap().getRoute()[getControl()
-					.getLocalPosition().x][getControl().getLocalPosition().y];
-			if (ElementNumber % 100 == 1) {
-				yellowTower yellow = new yellowTower(main, imgNum,
-						getControl().position.x, getControl().position.y);
-				if (yellow.Gold <= gold) {
-					getTowers().addElement(yellow);
-					this.setGold(gold - yellow.Gold);
-					gameCanvas.getMap().getRoute()[getControl()
-							.getLocalPosition().x][getControl()
-							.getLocalPosition().y] = getTowers().size() * 100 + 5;
-				}
-			} else if (ElementNumber % 100 == 2) {
-				yellowTower2 yellow = new yellowTower2(main, imgNum,
-						getControl().position.x, getControl().position.y);
-				if (yellow.Gold <= gold) {
-					getTowers().insertElementAt(yellow, ElementNumber / 100);
-					getTowers().removeElementAt((ElementNumber / 100) + 1);
-					this.setGold(gold - yellow.Gold);
-					gameCanvas.getMap().getRoute()[getControl()
-							.getLocalPosition().x][getControl()
-							.getLocalPosition().y] = 100 * (ElementNumber / 100) + 6;
-				}
-			} else if (ElementNumber % 100 == 3) {
-				yellowTower3 yellow = new yellowTower3(main, imgNum,
-						getControl().position.x, getControl().position.y);
-				if (yellow.Gold <= gold) {
-					getTowers().insertElementAt(yellow, ElementNumber / 100);
-					getTowers().removeElementAt((ElementNumber / 100) + 1);
-					this.setGold(gold - yellow.Gold);
-					gameCanvas.getMap().getRoute()[getControl()
-							.getLocalPosition().x][getControl()
-							.getLocalPosition().y] = 100 * (ElementNumber / 100) + 7;
-				}
-			}
-		}
-		if (towerNumber == 3) {
-			int ElementNumber = gameCanvas.getMap().getRoute()[getControl()
-					.getLocalPosition().x][getControl().getLocalPosition().y];
-			if (ElementNumber % 100 == 1) {
-				blueTower blue = new blueTower(main, imgNum,
-						getControl().position.x, getControl().position.y);
-				if (blue.Gold <= gold) {
-					getTowers().addElement(blue);
-					this.setGold(gold - blue.Gold);
-					gameCanvas.getMap().getRoute()[getControl()
-							.getLocalPosition().x][getControl()
-							.getLocalPosition().y] = getTowers().size() * 100 + 8;
-				}
-			} else if (ElementNumber % 100 == 2) {
-				blueTower2 blue = new blueTower2(main, imgNum,
-						getControl().position.x, getControl().position.y);
-				if (blue.Gold <= gold) {
-					getTowers().insertElementAt(blue, ElementNumber / 100);
-					getTowers().removeElementAt((ElementNumber / 100) + 1);
-					this.setGold(gold - blue.Gold);
-					gameCanvas.getMap().getRoute()[getControl()
-							.getLocalPosition().x][getControl()
-							.getLocalPosition().y] = 100 * (ElementNumber / 100) + 9;
-				}
-			} else if (ElementNumber % 100 == 3) {
-				blueTower3 blue = new blueTower3(main, imgNum,
-						getControl().position.x, getControl().position.y);
-				if (blue.Gold <= gold) {
-					getTowers().insertElementAt(blue, ElementNumber / 100);
-					getTowers().removeElementAt((ElementNumber / 100) + 1);
-					this.setGold(gold - blue.Gold);
-					gameCanvas.getMap().getRoute()[getControl()
-							.getLocalPosition().x][getControl()
-							.getLocalPosition().y] = 100 * (ElementNumber / 100) + 10;
-				}
-			}
-		}
-		if (towerNumber == 4) {
-			int ElementNumber = gameCanvas.getMap().getRoute()[getControl()
-					.getLocalPosition().x][getControl().getLocalPosition().y];
-			if (ElementNumber % 100 == 1) {
-				blackTower black = new blackTower(main, imgNum,
-						getControl().position.x, getControl().position.y);
-				if (black.Gold <= gold) {
-					getTowers().addElement(black);
-					this.setGold(gold - black.Gold);
-					gameCanvas.getMap().getRoute()[getControl()
-							.getLocalPosition().x][getControl()
-							.getLocalPosition().y] = getTowers().size() * 100 + 11;
-				}
-			} else if (ElementNumber % 100 == 2) {
-				blackTower2 black = new blackTower2(main, imgNum,
-						getControl().position.x, getControl().position.y);
-				if (black.Gold <= gold) {
-					getTowers().insertElementAt(black, ElementNumber / 100);
-					getTowers().removeElementAt((ElementNumber / 100) + 1);
-					this.setGold(gold - black.Gold);
-					gameCanvas.getMap().getRoute()[getControl()
-							.getLocalPosition().x][getControl()
-							.getLocalPosition().y] = 100 * (ElementNumber / 100) + 12;
-				}
-			} else if (ElementNumber % 100 == 3) {
-				blackTower3 black = new blackTower3(main, imgNum,
-						getControl().position.x, getControl().position.y);
-				if (black.Gold <= gold) {
-					getTowers().insertElementAt(black, ElementNumber / 100);
-					getTowers().removeElementAt((ElementNumber / 100) + 1);
-					this.setGold(gold - black.Gold);
-					gameCanvas.getMap().getRoute()[getControl()
-							.getLocalPosition().x][getControl()
-							.getLocalPosition().y] = 100 * (ElementNumber / 100) + 13;
-				}
-			}
-		}*/
+		 * if (towerNumber == 2) { int ElementNumber =
+		 * gameCanvas.getMap().getRoute()[getControl()
+		 * .getLocalPosition().x][getControl().getLocalPosition().y]; if
+		 * (ElementNumber % 100 == 1) { yellowTower yellow = new
+		 * yellowTower(main, imgNum, getControl().position.x,
+		 * getControl().position.y); if (yellow.Gold <= gold) {
+		 * getTowers().addElement(yellow); this.setGold(gold - yellow.Gold);
+		 * gameCanvas.getMap().getRoute()[getControl()
+		 * .getLocalPosition().x][getControl() .getLocalPosition().y] =
+		 * getTowers().size() * 100 + 5; } } else if (ElementNumber % 100 == 2)
+		 * { yellowTower2 yellow = new yellowTower2(main, imgNum,
+		 * getControl().position.x, getControl().position.y); if (yellow.Gold <=
+		 * gold) { getTowers().insertElementAt(yellow, ElementNumber / 100);
+		 * getTowers().removeElementAt((ElementNumber / 100) + 1);
+		 * this.setGold(gold - yellow.Gold);
+		 * gameCanvas.getMap().getRoute()[getControl()
+		 * .getLocalPosition().x][getControl() .getLocalPosition().y] = 100 *
+		 * (ElementNumber / 100) + 6; } } else if (ElementNumber % 100 == 3) {
+		 * yellowTower3 yellow = new yellowTower3(main, imgNum,
+		 * getControl().position.x, getControl().position.y); if (yellow.Gold <=
+		 * gold) { getTowers().insertElementAt(yellow, ElementNumber / 100);
+		 * getTowers().removeElementAt((ElementNumber / 100) + 1);
+		 * this.setGold(gold - yellow.Gold);
+		 * gameCanvas.getMap().getRoute()[getControl()
+		 * .getLocalPosition().x][getControl() .getLocalPosition().y] = 100 *
+		 * (ElementNumber / 100) + 7; } } } if (towerNumber == 3) { int
+		 * ElementNumber = gameCanvas.getMap().getRoute()[getControl()
+		 * .getLocalPosition().x][getControl().getLocalPosition().y]; if
+		 * (ElementNumber % 100 == 1) { blueTower blue = new blueTower(main,
+		 * imgNum, getControl().position.x, getControl().position.y); if
+		 * (blue.Gold <= gold) { getTowers().addElement(blue); this.setGold(gold
+		 * - blue.Gold); gameCanvas.getMap().getRoute()[getControl()
+		 * .getLocalPosition().x][getControl() .getLocalPosition().y] =
+		 * getTowers().size() * 100 + 8; } } else if (ElementNumber % 100 == 2)
+		 * { blueTower2 blue = new blueTower2(main, imgNum,
+		 * getControl().position.x, getControl().position.y); if (blue.Gold <=
+		 * gold) { getTowers().insertElementAt(blue, ElementNumber / 100);
+		 * getTowers().removeElementAt((ElementNumber / 100) + 1);
+		 * this.setGold(gold - blue.Gold);
+		 * gameCanvas.getMap().getRoute()[getControl()
+		 * .getLocalPosition().x][getControl() .getLocalPosition().y] = 100 *
+		 * (ElementNumber / 100) + 9; } } else if (ElementNumber % 100 == 3) {
+		 * blueTower3 blue = new blueTower3(main, imgNum,
+		 * getControl().position.x, getControl().position.y); if (blue.Gold <=
+		 * gold) { getTowers().insertElementAt(blue, ElementNumber / 100);
+		 * getTowers().removeElementAt((ElementNumber / 100) + 1);
+		 * this.setGold(gold - blue.Gold);
+		 * gameCanvas.getMap().getRoute()[getControl()
+		 * .getLocalPosition().x][getControl() .getLocalPosition().y] = 100 *
+		 * (ElementNumber / 100) + 10; } } } if (towerNumber == 4) { int
+		 * ElementNumber = gameCanvas.getMap().getRoute()[getControl()
+		 * .getLocalPosition().x][getControl().getLocalPosition().y]; if
+		 * (ElementNumber % 100 == 1) { blackTower black = new blackTower(main,
+		 * imgNum, getControl().position.x, getControl().position.y); if
+		 * (black.Gold <= gold) { getTowers().addElement(black);
+		 * this.setGold(gold - black.Gold);
+		 * gameCanvas.getMap().getRoute()[getControl()
+		 * .getLocalPosition().x][getControl() .getLocalPosition().y] =
+		 * getTowers().size() * 100 + 11; } } else if (ElementNumber % 100 == 2)
+		 * { blackTower2 black = new blackTower2(main, imgNum,
+		 * getControl().position.x, getControl().position.y); if (black.Gold <=
+		 * gold) { getTowers().insertElementAt(black, ElementNumber / 100);
+		 * getTowers().removeElementAt((ElementNumber / 100) + 1);
+		 * this.setGold(gold - black.Gold);
+		 * gameCanvas.getMap().getRoute()[getControl()
+		 * .getLocalPosition().x][getControl() .getLocalPosition().y] = 100 *
+		 * (ElementNumber / 100) + 12; } } else if (ElementNumber % 100 == 3) {
+		 * blackTower3 black = new blackTower3(main, imgNum,
+		 * getControl().position.x, getControl().position.y); if (black.Gold <=
+		 * gold) { getTowers().insertElementAt(black, ElementNumber / 100);
+		 * getTowers().removeElementAt((ElementNumber / 100) + 1);
+		 * this.setGold(gold - black.Gold);
+		 * gameCanvas.getMap().getRoute()[getControl()
+		 * .getLocalPosition().x][getControl() .getLocalPosition().y] = 100 *
+		 * (ElementNumber / 100) + 13; } } }
+		 */
 	}
 
 	private void process_GameObject(Vector<? extends GameObject> Vec) {
@@ -568,7 +533,7 @@ public class MainFrame extends Frame implements KeyListener, Runnable {
 	}
 
 	public void setLife(int life) {
-		life = life;
+		this.life = life;
 	}
 
 	public int getgScreenWidth() {
@@ -599,8 +564,9 @@ public class MainFrame extends Frame implements KeyListener, Runnable {
 		return towers;
 	}
 
-	public void setTowers(Vector<GameObject> towers) {
-		towers = towers;
+	public void setTowers(Vector<Tower> towers) {
+		this.towers = new Vector<Tower>();
+		this.towers.addAll(towers);
 	}
 
 	public Vector<GameObject> getEnemys() {
@@ -608,7 +574,8 @@ public class MainFrame extends Frame implements KeyListener, Runnable {
 	}
 
 	public void setEnemys(Vector<GameObject> enemys) {
-		enemys = enemys;
+		this.enemys = new Vector<GameObject>();
+		this.enemys.addAll(enemys);
 	}
 
 	public Vector<GameObject> getBullets() {
@@ -616,7 +583,7 @@ public class MainFrame extends Frame implements KeyListener, Runnable {
 	}
 
 	public void setBullets(Vector<GameObject> bullets) {
-		bullets = bullets;
+		this.bullets = bullets;
 	}
 
 	public Vector<GameObject> getEffects() {
@@ -624,7 +591,7 @@ public class MainFrame extends Frame implements KeyListener, Runnable {
 	}
 
 	public void setEffects(Vector<GameObject> effects) {
-		effects = effects;
+		this.effects = effects;
 	}
 
 	public Vector<GameObject> getUIs() {
@@ -632,7 +599,7 @@ public class MainFrame extends Frame implements KeyListener, Runnable {
 	}
 
 	public void setUIs(Vector<GameObject> uIs) {
-		uIs = uIs;
+		this.uIs = uIs;
 	}
 
 	public Controller getControl() {
@@ -640,7 +607,7 @@ public class MainFrame extends Frame implements KeyListener, Runnable {
 	}
 
 	public void setControl(Controller control) {
-		control = control;
+		this.control = control;
 	}
 
 	public int getGold() {
@@ -648,7 +615,7 @@ public class MainFrame extends Frame implements KeyListener, Runnable {
 	}
 
 	public void setGold(int gold) {
-		gold = gold;
+		this.gold = gold;
 	}
 }
 
