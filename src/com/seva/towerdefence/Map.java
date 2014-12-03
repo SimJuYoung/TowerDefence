@@ -2,17 +2,20 @@ package com.seva.towerdefence;
 import java.awt.Point;
 import java.util.Vector;
 
+import com.seva.towerdefence.frame.MainFrame;
+import com.seva.towerdefence.models.GameObject;
 
-public class Map extends gameObject{
+
+public class Map extends GameObject{
 	
-	protected int Route[][];		//적이 이동할 곳과 타워를 지을 수 있는 곳의 구분
+	private int Route[][];		//적이 이동할 곳과 타워를 지을 수 있는 곳의 구분
 	public Vector<Point> Routing;	//적이 이동해야할 순서
 	private int stage;
 	
 	
 	//constructer
-	Map(mainFrame main, int x, int y) {super(main, x, y);	stage = 1; Routing = new Vector<Point>(); setRoute(); }
-	Map(mainFrame main, int ImgNum, int x, int y) {super(main, ImgNum, x, y);	stage = 1;  Routing = new Vector<Point>(); setRoute(); }
+	Map(MainFrame main, int x, int y) {super(main, x, y);	stage = 1; Routing = new Vector<Point>(); setRoute(); }
+	Map(MainFrame main, int ImgNum, int x, int y) {super(main, ImgNum, x, y);	stage = 1;  Routing = new Vector<Point>(); setRoute(); }
 	//constructer
 	
 	void setStage(int num){
@@ -114,6 +117,12 @@ public class Map extends gameObject{
 				Routing.add(new Point(12, 2));	//7
 			break;
 		}
+	}
+	public int[][] getRoute() {
+		return Route;
+	}
+	public void setRoute(int route[][]) {
+		Route = route;
 	}
 	
 }

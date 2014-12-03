@@ -1,16 +1,19 @@
 package com.seva.towerdefence;
 
-public class Effect extends gameObject{
+import com.seva.towerdefence.frame.MainFrame;
+import com.seva.towerdefence.models.GameObject;
+
+public class Effect extends GameObject{
 	public int DestroyFrame;
 	private int Framer;
 	
-	Effect(mainFrame main, int imgIndex, int x, int y){
+	Effect(MainFrame main, int imgIndex, int x, int y){
 		super(main, imgIndex, x, y);
 		Framer = 0;
 		DestroyFrame = 10;
 	}
 	
-	Effect(mainFrame main, int x, int y){
+	Effect(MainFrame main, int x, int y){
 		super(main, x, y);
 		Framer = 0;
 		DestroyFrame = 10;
