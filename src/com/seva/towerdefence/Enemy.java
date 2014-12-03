@@ -20,6 +20,7 @@ public class Enemy extends gameObject{
 		velocity = MultiplePoint(subPoint(main.gameCanvas.map.getPositionRouting(myWay + 1),this.position), Nomalization * speed);
 
 	}
+	
 	public void move(){
 		run();
 		animate(3);
@@ -27,9 +28,7 @@ public class Enemy extends gameObject{
 			Destroy = true;
 		}
 	}
-	
-
-	
+		
 	protected void run(){
 		if(this.position.distance(MainR) < 5){		//정점과의 거리가 5보다 작아지면, 다음 가야할 방향을 설정한다.
 			myWay ++;
