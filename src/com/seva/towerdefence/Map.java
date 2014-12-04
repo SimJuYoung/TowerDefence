@@ -8,15 +8,23 @@ import com.seva.towerdefence.models.GameObject;
 
 public class Map extends GameObject{
 	
-	private int Route[][];		//적이 이동할 곳과 타워를 지을 수 있는 곳의 구분
+	private int Route[][];			//적이 이동할 곳과 타워를 지을 수 있는 곳의 구분
 	public Vector<Point> Routing;	//적이 이동해야할 순서
 	private int stage;
 	
+	Map(MainFrame main, int x, int y) {				// constructor
+		super(main, x, y);	stage = 1; 
+		Routing = new Vector<Point>(); 
+		setRoute(); 
+	}
 	
-	//constructer
-	Map(MainFrame main, int x, int y) {super(main, x, y);	stage = 1; Routing = new Vector<Point>(); setRoute(); }
-	Map(MainFrame main, int ImgNum, int x, int y) {super(main, ImgNum, x, y);	stage = 1;  Routing = new Vector<Point>(); setRoute(); }
-	//constructer
+	Map(MainFrame main, int ImgNum, int x, int y) {	// constructor
+		super(main, ImgNum, x, y);	
+		stage = 1;  
+		Routing = new Vector<Point>(); 
+		setRoute(); 
+	}
+	
 	
 	void setStage(int num){
 		stage = num;
@@ -24,7 +32,8 @@ public class Map extends GameObject{
 	
 	public Point getPositionRouting(int RoutingNumber){
 		int x = (main.getWidth()*(Routing.elementAt(RoutingNumber).x+1))/14 - main.getWidth()/28;
-		int y = (main.getHeight()-30)*(Routing.elementAt(RoutingNumber).y+1)/10 - (main.getHeight()-30)/20;
+		int y = (main.getHeight()-30)*(Routing.elementAt(RoutingNumber).y+1)/10 
+				- (main.getHeight()-30)/20;
 		Point Pos = new Point(x,y);
 		return Pos;
 	}

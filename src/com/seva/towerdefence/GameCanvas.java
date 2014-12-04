@@ -14,7 +14,7 @@ import com.seva.towerdefence.models.GameObject;
 public class GameCanvas extends Canvas {
 	private static final long serialVersionUID = 1L;
 	MainFrame main;
-	GameObject start, over, title, MainUI;
+	GameObject start, over, title, MainUI, Logo, Menu, cotton;
 	private GameObject titleControl;
 	private Map map;
 	ImageBox ImgBox;
@@ -24,21 +24,23 @@ public class GameCanvas extends Canvas {
 	Font font;
 	int step = 0;
 
-	public GameCanvas(MainFrame main) {
-		this.main = main;
-		font = new Font("Default", Font.PLAIN, 9);
-		start = new GameObject(main, 0, 0, 0);
-		over = new GameObject(main, 1, main.getWidth() / 2,
-				main.getHeight() / 2);
-		title = new GameObject(main, 2, main.getWidth() / 2,
-				main.getHeight() / 2);
-		setMap(new Map(main, 6, main.getWidth() / 2, main.getHeight() / 2));
-		MainUI = new GameObject(main, 4, 0, 0);
-		setTitleControl(new GameObject(main, 5, main.getWidth() / 2,
-				main.getHeight() / 3));
+	public GameCanvas(MainFrame main){
+		this.main=main;
+		font=new Font("Default",Font.PLAIN,9);
+		start = new GameObject(main, 0, 0,0);
+		//
+		Logo = new GameObject(main, 1,main.getWidth()/2, main.getHeight() + 130);
+		title = new GameObject(main, 2, main.getWidth()/2, main.getHeight()/2);
+		Menu = new GameObject(main, 3, main.getWidth()*3/4, -100);
+		cotton = new GameObject(main, 126, main.getWidth()/2, (main.getHeight()/2) + 50);
+		//
+		map = new Map(main,6,main.getWidth()/2, main.getHeight()/2);
+		MainUI = new GameObject(main, 4,0,0);
+		titleControl = new GameObject(main, 5, main.getWidth()*3/4, -100);
 		ImgBox = new ImageBox(this);
 	}
 
+	@Override
 	public void paint(Graphics g) {
 		if (gc == null) {
 			dblbuff = createImage(main.getgScreenWidth(),
@@ -53,6 +55,7 @@ public class GameCanvas extends Canvas {
 		update(g);
 	}
 
+	@Override
 	public void update(Graphics g) {
 		if (gc == null)
 			return;
@@ -68,6 +71,7 @@ public class GameCanvas extends Canvas {
 			gc.setColor(new Color(0));
 			// gc.drawString("start Game : " + main.gameControl, 340, 200);
 			// gc.drawString("exit Game", 340, 100);
+			Draw_Title();
 			break;
 		case 1:// 게임 스타트
 			Draw_BG();
@@ -76,11 +80,13 @@ public class GameCanvas extends Canvas {
 		case 2:// 게임화면
 			Draw_BG();
 			Draw_Control();
-			Draw_gameObject(main.getTowers());
+			Draw_gameObject(main.getTowers(), 2 * this.getWidth() / 28,
+					(int) (0.5 * this.getHeight() / 5), 15);
 			Draw_gameObject(main.getEnemys(), 60, 60);
-			Draw_gameObject(main.getBullets());
+			Draw_gameObject(main.getBullets(), 1 * this.getWidth() / 28,
+					(int) (0.2 * this.getHeight() / 5), 15);
 			Draw_gameObject(main.getEffects());
-			Draw_gameObject(main.getUIs(), (int) (2 * this.getWidth() / 28),
+			Draw_gameObject(main.getUIs(), 2 * this.getWidth() / 28,
 					(int) (0.5 * this.getHeight() / 5), 15);
 			Draw_UI();
 			break;
@@ -90,7 +96,7 @@ public class GameCanvas extends Canvas {
 			Draw_gameObject(main.getEnemys(), 60, 60);
 			Draw_gameObject(main.getBullets());
 			Draw_gameObject(main.getEffects());
-			Draw_gameObject(main.getUIs(), (int) (2 * this.getWidth() / 28),
+			Draw_gameObject(main.getUIs(), 2 * this.getWidth() / 28,
 					(int) (0.5 * this.getHeight() / 5), 15);
 			Draw_UI();
 			break;
@@ -129,7 +135,7 @@ public class GameCanvas extends Canvas {
 		int i;
 		GameObject buff;
 		for (i = 0; i < vec.size(); i++) {
-			buff = (GameObject) (vec.elementAt(i));
+			buff = (vec.elementAt(i));
 			gcDrawImage(buff);
 		}
 	}
@@ -138,7 +144,7 @@ public class GameCanvas extends Canvas {
 		int i;
 		GameObject buff;
 		for (i = 0; i < vec.size(); i++) {
-			buff = (GameObject) (vec.elementAt(i));
+			buff = (vec.elementAt(i));
 			gcDrawImage(buff, x, y);
 		}
 	}
@@ -148,7 +154,7 @@ public class GameCanvas extends Canvas {
 		int i;
 		GameObject buff;
 		for (i = 0; i < vec.size(); i++) {
-			buff = (GameObject) (vec.elementAt(i));
+			buff = (vec.elementAt(i));
 			gcDrawImage(buff, x, y, height_transformation);
 		}
 	}
@@ -165,7 +171,7 @@ public class GameCanvas extends Canvas {
 		while (true) { // 자릿수 구하기
 			if (0 < virtualNum) {
 				NumCount++;
-				virtualNum = (int) virtualNum / 10;
+				virtualNum = virtualNum / 10;
 			} else {
 				break;
 			}
@@ -173,7 +179,7 @@ public class GameCanvas extends Canvas {
 		virtualNum = Num;
 		for (int i = 0; i < NumCount; i++) {
 			Draw_Number(virtualNum % 10, x - (scale * 2 * i / 5), y, scale);
-			virtualNum = (int) virtualNum / 10;
+			virtualNum = virtualNum / 10;
 		}
 	}
 
@@ -197,6 +203,14 @@ public class GameCanvas extends Canvas {
 				- (height / 2) - gO.position.y + height_transformation, width,
 				height, this);
 	}
+	
+	private void Draw_Title(){
+		gcDrawImage(title, main.getWidth(), main.getHeight(), 30);
+		gcDrawImage(Logo, main.getWidth()*2/3, main.getHeight()/2, 30);
+		gcDrawImage(Menu, main.getWidth()/4, main.getHeight()/5, 30);
+		gcDrawImage(cotton, main.getWidth(), main.getHeight(), 30);
+		gcDrawImage(titleControl, (main.getWidth())*3/7, main.getHeight()/5, -4);
+	}
 
 	public GameObject getTitleControl() {
 		return titleControl;
@@ -214,4 +228,27 @@ public class GameCanvas extends Canvas {
 		this.map = map;
 	}
 
+	public GameObject getLogo() {
+		return Logo;
+	}
+
+	public void setLogo(GameObject logo) {
+		Logo = logo;
+	}
+
+	public GameObject getMenu() {
+		return Menu;
+	}
+
+	public void setMenu(GameObject menu) {
+		Menu = menu;
+	}
+
+	public GameObject getCotton() {
+		return cotton;
+	}
+
+	public void setCotton(GameObject cotton) {
+		this.cotton = cotton;
+	}
 }

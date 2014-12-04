@@ -157,6 +157,7 @@ public class Controller extends GameObject {
 		}
 	}
 
+	@Override
 	public void move() {
 		switch (state) {
 		case 0:// 기본상태

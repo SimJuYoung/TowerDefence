@@ -36,7 +36,7 @@ public class GameObject {
 	public void move() {
 	}
 
-	public void Collision(GameObject gO) {
+	public void Collision(int damage) {
 	}
 
 	public Point Nomalize(Point point) {
@@ -66,9 +66,4 @@ public class GameObject {
 		Point c = new Point((int) (a.x * d), (int) (a.y * d));
 		return c;
 	}
-	/*
-	 * public float distance(gameObject dest){ return (float)
-	 * Math.sqrt(dest.position.x * this.position.x + dest.position.y *
-	 * this.position.y); }
-	 */
 }
